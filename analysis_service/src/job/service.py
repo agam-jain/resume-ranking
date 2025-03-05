@@ -3,7 +3,7 @@ import time
 
 import jsbeautifier
 from langchain.schema import HumanMessage, SystemMessage
-from langchain_openai import ChatOpenAI
+from langchain_ollama import ChatOllama
 from src.job.config import job_config
 from src.job.prompts import fn_job_analysis, system_prompt_job
 from src.utils import LOGGER
@@ -19,7 +19,7 @@ def analyse_job(job_data):
     start = time.time()
     LOGGER.info("Start analyse job")
 
-    llm = ChatOpenAI(model=job_config.MODEL_NAME, temperature=0.5)
+    llm = ChatOllama(model=job_config.MODEL_NAME, temperature=0.5)
     completion = llm.predict_messages(
         [
             SystemMessage(content=system_prompt_job),

@@ -3,3 +3,5 @@ nginx/log
 *.log
 *.mp4
 NOTE.md
+.aider*
+.env
